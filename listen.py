@@ -4,14 +4,14 @@ import cv2
 import time
 import numpy as np
 from AlphaBot import AlphaBot
-from picamera2 import PiCamera2
+from picamera import PiCamera
 from bottle import Bottle, get, run, request
 
 app = Bottle()
 
 def setup_app(app):
     app.bot = AlphaBot()
-    app.camera = PiCamera2()
+    app.camera = PiCamera()
     app.camera.resolution = (640,480)
     app.camera.framerate = 24
     app.camera.start_preview()
